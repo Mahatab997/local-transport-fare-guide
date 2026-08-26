@@ -1,28 +1,60 @@
-# Local Transport Fare Guide (LTFG)
+<div align="center">
 
-A PHP & MySQL web application for browsing local transport routes and fares, submitting service reports, and managing everything from an admin dashboard.
+# 🚌 Local Transport Fare Guide (LTFG)
 
-## Features
+**A PHP & MySQL web application for browsing local transport routes and fares, submitting service reports, and managing everything from a full-featured admin dashboard.**
 
-- **User accounts** — registration, login/logout, and profile management
-- **Route & fare lookup** — search routes, view fares, and save favorites
-- **Fare history** — track previously viewed/searched fares
-- **Reports** — users can submit reports (fare, route, service, app, safety, other) with severity levels; admins can review and update status
-- **Admin dashboard** — manage users, locations, routes, transports, fares, and reports
-- **Role-based access** — separate `user` and `admin` areas, guarded by session auth
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)](https://www.php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=flat&logo=xampp&logoColor=white)](https://www.apachefriends.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
 
-## Tech Stack
+</div>
 
-- **Backend:** PHP (PDO for MySQL)
-- **Database:** MySQL / MariaDB
-- **Frontend:** HTML, CSS, vanilla JS
-- **Environment:** Designed to run on XAMPP (Apache + MySQL)
+---
 
-## Project Structure
+## 📖 Table of Contents
+
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Default Admin Login](#-default-admin-login)
+- [Database Schema](#-database-schema)
+- [Roadmap](#-roadmap)
+- [License](#-license)
+
+---
+
+## ✨ Features
+
+| | |
+|---|---|
+| 👤 **User Accounts** | Registration, login/logout, and profile management |
+| 🔍 **Route & Fare Lookup** | Search routes, view fares, and save favorites |
+| 🕘 **Fare History** | Track previously viewed and searched fares |
+| 📝 **Reports** | Submit reports by category (fare, route, service, app, safety, other) with severity levels |
+| 🛠️ **Admin Dashboard** | Manage users, locations, routes, transports, fares, and reports |
+| 🔐 **Role-Based Access** | Separate `user` and `admin` areas, guarded by session authentication |
+
+---
+
+## 🧰 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Backend** | PHP (PDO for MySQL) |
+| **Database** | MySQL / MariaDB |
+| **Frontend** | HTML, CSS, Vanilla JS |
+| **Environment** | XAMPP (Apache + MySQL) |
+
+---
+
+## 📁 Project Structure
 
 ```
 LTFG/
-├── admin/            # Admin dashboard (dashboard, fares, locations, reports, routes, transports, users)
+├── admin/            # Admin dashboard (fares, locations, reports, routes, transports, users)
 ├── auth/             # Login, register, logout
 ├── user/             # User dashboard, search, fare history, favorites, reports, profile
 ├── includes/         # Shared layout, session/auth helpers, and utility functions
@@ -32,7 +64,9 @@ LTFG/
 └── index.php         # Landing page
 ```
 
-## Getting Started
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -41,53 +75,78 @@ LTFG/
 
 ### Installation
 
-1. Clone or copy this project into your server's document root, e.g. `C:\xampp\htdocs\LTFG`.
-2. Start **Apache** and **MySQL** from the XAMPP control panel.
-3. Import the database schema:
+1. **Clone or copy** this project into your server's document root:
+   ```
+   C:\xampp\htdocs\LTFG
+   ```
+
+2. **Start** Apache and MySQL from the XAMPP control panel.
+
+3. **Import the database schema** — either:
    - Open phpMyAdmin and import `database/transport.sql`, **or**
    - Run it via the CLI:
      ```bash
      mysql -u root -p < database/transport.sql
      ```
-4. Update database credentials in `config/config.php` if they differ from the defaults:
+
+4. **Configure credentials** in `config/config.php` if they differ from the defaults:
    ```php
    define('DB_HOST', 'localhost');
    define('DB_NAME', 'local_transport_fair_guide');
    define('DB_USER', 'root');
    define('DB_PASS', '');
    ```
-5. Open the app in your browser:
+
+5. **Launch the app** in your browser:
    ```
    http://localhost/LTFG
    ```
 
-A default admin account is created automatically on first load.
+> A default admin account is created automatically on first load.
 
-## Default Admin Login
+---
+
+## 🔑 Default Admin Login
 
 | Field    | Value             |
 |----------|-------------------|
 | Email    | `admin@gmai.com`  |
 | Password | `admin@gmai.com`  |
 
-> ⚠️ **Change this password immediately** if you deploy this project anywhere beyond local development.
+> ⚠️ **Security Notice:** Change this password immediately before deploying anywhere beyond local development.
 
-## Database
+---
 
-The schema (`database/transport.sql`) includes the following core tables:
+## 🗄️ Database Schema
 
-- `users` — accounts with `user` / `admin` roles
-- `locations` — named locations/regions
-- `routes` — routes between locations with fares
-- `favorites` — a user's saved routes
-- `reports` — user-submitted issues/feedback with category, severity, and status
+The schema (`database/transport.sql`) defines these core tables:
 
-## Roadmap / Notes
+| Table | Description |
+|---|---|
+| `users` | Accounts with `user` / `admin` roles |
+| `locations` | Named locations/regions |
+| `routes` | Routes between locations, including fares |
+| `favorites` | A user's saved/favorited routes |
+| `reports` | User-submitted issues and feedback with category, severity, and status |
 
-- Use strong, unique credentials before deploying to production
-- Consider adding CSRF protection and rate limiting on auth forms
-- API endpoints (`api/`) are scaffolded but not yet implemented
+---
 
-## License
+## 🗺️ Roadmap
 
-Add a license of your choice (e.g. MIT) here.
+- [ ] Enforce strong, unique credentials before production deployment
+- [ ] Add CSRF protection and rate limiting on auth forms
+- [ ] Implement the scaffolded `api/` endpoints
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE) — feel free to use, modify, and distribute it.
+
+---
+
+<div align="center">
+
+Made with ❤️ for smarter, more transparent local transport.
+
+</div>
