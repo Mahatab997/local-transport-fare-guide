@@ -1,0 +1,18 @@
+# XAMPP / local files
+*.log
+
+# Environment / secrets
+.env
+
+# IDE
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Composer
+/vendor/
+
+# Node
+/node_modules/
